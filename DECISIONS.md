@@ -1,36 +1,31 @@
-# DECISIONS.md
 
-## Tabs vs Accordion for Product Details Section
-**Decision:** Tabs
+# Architectural Decisions & Reflections
 
-**Justification:**
-- Tabs provide a clear, always-visible navigation for Description, Specifications, and Reviews, which is more discoverable and user-friendly on desktop.
-- Accordions are better for mobile, but tabs can be made responsive (stacked or scrollable on mobile).
-- Tabs are a common pattern for PDPs in premium e-commerce, supporting quick comparison between sections.
+## Key Architectural Decision: State Management
 
-## State Management: Context API
-**Decision:** React Context API
+One architectural decision I could have gone either way on was how to manage global state—specifically, the cart and selected product variant. The main options were:
 
-**Justification:**
-- The app is small-to-medium in scope, and Context API is sufficient for global state (cart, selected variant, etc.).
-- No need for Redux or external state libraries, keeping dependencies minimal.
-- Context API integrates well with hooks and localStorage for persistence.
+- **React Context API** (what I chose)
 
-## Routing
-**Decision:** React Router (if multiple pages or deep-linking is needed)
+### Why Context API?
+- **Simplicity:** For a small-to-medium app, Context is built-in, easy to set up, and doesn't require extra dependencies or boilerplate. The cart and variant state are not deeply nested or highly dynamic, so Context is sufficient.
+- **Performance:** With careful memoization and separation of concerns, Context can be performant enough for this use case. Redux or Zustand would be overkill unless the app grows much larger.
+- **Developer Experience:** Context is familiar to most React developers and integrates well with hooks and TypeScript.
 
-**Justification:**
-- Required for reflecting selected variant in the URL and supporting deep links.
-- If only a single PDP is needed, routing can be minimal or skipped.
+### Why not Redux or Zustand?
+- **Overhead:** These libraries add complexity and bundle size. For this project, the benefits (time-travel debugging, middleware, etc.) aren't needed.
+- **Learning Curve:** Context is more approachable for contributors who may not know Redux/Zustand.
 
-## CSS: SCSS Modules
-**Decision:** SCSS Modules
+### Why not Prop Drilling?
+- **Scalability:** Passing props through many layers quickly becomes unmanageable as the app grows. Context avoids this problem.
 
-**Justification:**
-- Scoped styles prevent leakage and conflicts.
-- SCSS features (nesting, variables, mixins) improve maintainability.
-- No Tailwind or CSS-in-JS per requirements.
+## What I'd Clean Up or Do Differently With More Time
 
----
-
-This file documents architectural and implementation decisions for maintainers and reviewers.
+- **Product Browsing & Filtering:** Currently, only the first women's clothing product is shown. With more time, I'd implement category browsing, filtering, and a product list page.
+- **Image Gallery:** The gallery uses placeholder images for variety. In a real app, I'd support multiple real images per product, with zoom and swipe gestures on mobile.
+- **Accessibility:** While basic ARIA labels are present, I'd invest more in keyboard navigation, focus management, and screen reader support.
+- **Testing:** Add more unit and integration tests, especially for cart logic and URL state syncing.
+- **Styling Consistency:** Some styles are hardcoded or duplicated. I'd refactor to use a design system or variables for colors, spacing, etc.
+- **Error Handling:** Improve error boundaries and user feedback for network failures or invalid URLs.
+- **SSR/SEO:** For a real storefront, I'd consider Next.js or SSR for better SEO and faster initial load.
+- **Performance:** Optimize bundle size, lazy-load images/components, and audit for unnecessary re-renders.

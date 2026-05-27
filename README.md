@@ -1,63 +1,65 @@
-# Premium Outdoor Gear Store - Product Detail Page (PDP)
 
-A production-quality React 18+ (TypeScript) Product Detail Page for a premium outdoor gear store, built with Vite and SCSS modules.
+# NUA Storefront
 
-## Features
-- Image gallery with zoom, thumbnails, and responsive layout
-- Product info panel with color/size/quantity selection, sale pricing, and delivery estimate
-- Cart state persisted in localStorage
-- Product details section with tabs (Description, Specifications, Reviews)
-- Responsive design for desktop and mobile
-- Context API for global state management
-- Deep-linkable variant selection via URL
-- Data from [Fake Store API](https://fakestoreapi.com)
+## Setup Steps
 
-## Stack
-- React 18+ with hooks
-- TypeScript
-- Vite
-- SCSS Modules
-- Context API
-- React Router (for deep-linking)
-
-## Project Structure
-- `/src/components` — UI components
-- `/src/hooks` — custom hooks
-- `/src/stores` — global state
-- `/src/router` — routing
-- `/src/data` — local constants/config
-- `/src/styles` — global styles
-- `/tests` — unit tests
-- `/docs` — documentation and Lighthouse screenshot
-
-## Getting Started
-1. Clone the repo
-2. Run `npm install`
-3. Run `npm run dev` (Node 18+ required)
-
-## Decisions
-See [DECISIONS.md](DECISIONS.md) for architectural choices.
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+2. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+3. **Open your browser:**
+   Visit [http://localhost:5173](http://localhost:5173) (or the port shown in your terminal).
 
 ---
 
-This project is structured for maintainability and real-world use, not as a tutorial.
-    },
-  },
-])
-```
+## Design Decisions
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **React Context API for State Management:**
+  - Used for global cart state and variant selection. Chosen for its simplicity and suitability for small/medium apps without extra dependencies.
+- **Cart Persistence:**
+  - Cart state is saved to `localStorage` and rehydrated on page load for a seamless user experience.
+- **Deep-Linkable Variants:**
+  - Selected color and size are reflected in the URL, allowing direct links to specific product configurations.
+- **Component Structure:**
+  - Modular components for gallery, product info, and details for maintainability and reusability.
+- **Styling:**
+  - SCSS modules for scoped, maintainable styles. Responsive design for desktop and mobile.
+- **Fake Store API:**
+  - Product data is fetched from [https://fakestoreapi.com](https://fakestoreapi.com) for demo purposes.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
+## Known Trade-offs
+
+- **No Backend:**
+  - All data is fetched from a public API; cart and user state are not synced across devices.
+- **No Authentication:**
+  - There is no user login or order history.
+- **Gallery Images:**
+  - Product images are simulated with placeholder services for variety; real e-commerce would use multiple product images per item.
+- **Limited Product Filtering:**
+  - Only the first women's clothing product is shown; browsing all products or categories is not implemented.
+- **No Server-Side Rendering (SSR):**
+  - The app is client-side only; SEO and initial load performance are not optimized for production.
+
+---
+
+## How to Contribute
+
+1. Fork the repo
+2. Create a feature branch
+3. Commit and push your changes
+4. Open a pull request
+
+---
+
+## License
+
+MIT
       // Other configs...
       // Enable lint rules for React
       reactX.configs['recommended-typescript'],
