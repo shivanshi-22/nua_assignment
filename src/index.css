@@ -1,0 +1,110 @@
+:root {
+  /* ── Amble palette ── */
+  --text: #5a5a5a;
+  --text-h: #1c1c1c;
+  --bg: #ffffff;
+  --border: #eeeeee;
+  --code-bg: #f5f2ed;
+
+  /* accent = Amble forest green */
+  --accent: #1c3a28;
+  --accent-bg: rgba(28, 58, 40, 0.07);
+  --accent-border: rgba(28, 58, 40, 0.35);
+
+  /* check / success green */
+  --green: #2d7a4f;
+  --green-bg: rgba(45, 122, 79, 0.08);
+
+  /* warm cream (Rx box, surfaces) */
+  --surface: #f5f2ed;
+  --surface-border: #e4ddd3;
+
+  /* amber stars */
+  --star: #f5a623;
+
+  --social-bg: rgba(245, 242, 237, 0.6);
+  --shadow:
+    rgba(0, 0, 0, 0.08) 0 8px 16px -4px, rgba(0, 0, 0, 0.04) 0 2px 6px -1px;
+
+  --sans: 'DM Sans', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: 'Instrument Serif', 'Georgia', serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+/* Amble is a light-only clinical design — no dark mode override */
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--heading);
+  font-weight: 400;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 48px;
+  letter-spacing: -0.5px;
+  margin: 24px 0;
+  @media (max-width: 1024px) {
+    font-size: 32px;
+    margin: 16px 0;
+  }
+}
+h2 {
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: -0.2px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 22px;
+  }
+}
+h3 {
+  font-size: 18px;
+  line-height: 1.3;
+  margin: 0 0 6px;
+}
+p {
+  margin: 0;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}

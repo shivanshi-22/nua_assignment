@@ -1,0 +1,328 @@
+// ─── ProductDetails — Clinical White (Amble-style) ────────────────────────────
+
+.detailsContainer {
+  margin-top: 2.5rem;
+  font-family: 'DM Sans', sans-serif;
+
+  @media (max-width: 767px) { margin-top: 2rem; }
+}
+
+// ── Accordion Sections ────────────────────────────────────────────────────────
+
+.accordionList {
+  border-top: 1px solid #eee;
+}
+
+.accordionItem {
+  border-bottom: 1px solid #eee;
+}
+
+.accordionHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1a1a;
+  user-select: none;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: 'DM Sans', sans-serif;
+
+  &:hover { color: #333; }
+}
+
+.accordionIcon {
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.15s;
+
+  svg {
+    width: 9px;
+    height: 9px;
+    stroke: #666;
+    stroke-width: 2;
+    fill: none;
+    transition: transform 0.2s ease;
+  }
+
+  &.open {
+    border-color: #1a1a1a;
+    svg { transform: rotate(180deg); stroke: #1a1a1a; }
+  }
+}
+
+.accordionBody {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.7;
+  padding-bottom: 14px;
+  animation: fadeDown 0.2s ease;
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+// ── Tab Layout (alternate) ────────────────────────────────────────────────────
+
+.tabsHeader {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1.5rem;
+}
+
+.tab {
+  padding: 10px 0;
+  margin-right: 1.75rem;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  transition: color 0.15s, border-color 0.15s;
+  margin-bottom: -1px;
+
+  &:hover { color: #555; }
+
+  &.active {
+    color: #1a1a1a;
+    border-bottom-color: #1a1a1a;
+  }
+}
+
+.tabContent {
+  animation: fadeSlide 0.2s ease;
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+// ── Description ───────────────────────────────────────────────────────────────
+
+.description {
+  max-width: 600px;
+
+  h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0 0 0.875rem;
+  }
+
+  p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #555;
+    margin: 0 0 1rem;
+  }
+
+  h4 {
+    font-size: 10px;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.625rem;
+      font-size: 13px;
+      color: #555;
+      line-height: 1.5;
+
+      &::before {
+        content: '';
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: #1a6b3c;
+        flex-shrink: 0;
+        margin-top: 6px;
+      }
+    }
+  }
+}
+
+// ── Specifications ────────────────────────────────────────────────────────────
+
+.specifications h3 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin: 0 0 1.25rem;
+}
+
+.specsTable {
+  width: 100%;
+  max-width: 520px;
+  border-collapse: collapse;
+
+  tr {
+    border-bottom: 1px solid #f0f0f0;
+    &:last-child { border-bottom: none; }
+    &:hover { background: #fafafa; }
+  }
+
+  td {
+    padding: 10px 0;
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+}
+
+.specKey {
+  font-weight: 500;
+  font-size: 10px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  width: 38%;
+  padding-right: 1rem;
+}
+
+.specValue {
+  color: #333;
+  word-break: break-word;
+}
+
+// ── Reviews ───────────────────────────────────────────────────────────────────
+
+.reviews h3 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin: 0 0 1.25rem;
+}
+
+.reviewsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.reviewCard {
+  padding: 1.25rem 1.25rem;
+  background: #fff;
+  transition: background 0.15s;
+
+  & + & { border-top: 1px solid #f0f0f0; }
+  &:hover { background: #fafafa; }
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+
+  @media (max-width: 767px) { flex-direction: column; gap: 0.3rem; }
+}
+
+.author {
+  margin: 0 0 0.2rem;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: 0.03em;
+}
+
+.rating {
+  font-size: 11px;
+  color: #f59e0b;
+  letter-spacing: 1px;
+}
+
+.date {
+  font-size: 10px;
+  color: #bbb;
+  letter-spacing: 0.05em;
+}
+
+.reviewTitle {
+  margin: 0 0 0.375rem;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.reviewText {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.65;
+  color: #666;
+}
+
+// ── Jump To ────────────────────────────────────────────────────────────────────
+
+.jumpSection {
+  padding: 0.875rem 0 0;
+}
+
+.jumpLabel {
+  font-size: 10px;
+  color: #aaa;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.jumpTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.jumpTag {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 11px;
+  color: #333;
+  cursor: pointer;
+  background: #fff;
+  font-family: 'DM Sans', sans-serif;
+  transition: border-color 0.15s, background 0.15s;
+
+  &:hover { border-color: #999; background: #f8f8f8; }
+}

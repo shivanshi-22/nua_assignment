@@ -1,0 +1,404 @@
+// ─── ProductInfoPanel — Clinical White (Amble-style) ─────────────────────────
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-family: 'DM Sans', sans-serif;
+  color: #1c1c1c;
+}
+
+// ── Trust / Rating ────────────────────────────────────────────────────────────
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.stars {
+  color: #f5a623;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.count {
+  font-size: 11px;
+  color: #666;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+// ── Header ────────────────────────────────────────────────────────────────────
+
+.header { margin-bottom: 0.875rem; }
+
+.brand {
+  margin: 0 0 0.25rem;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  font-family: 'Instrument Serif', 'Georgia', serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #1c1c1c;
+  letter-spacing: -0.3px;
+
+  @media (max-width: 767px) { font-size: 22px; }
+}
+
+// ── Bullets ───────────────────────────────────────────────────────────────────
+
+.bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.875rem;
+}
+
+.bulletItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 12px;
+  color: #333;
+  line-height: 1.4;
+}
+
+.bulletCheck {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #2d7a4f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  svg {
+    width: 9px;
+    height: 9px;
+    stroke: #fff;
+    stroke-width: 2.5;
+    fill: none;
+  }
+}
+
+// ── Rx Notice ─────────────────────────────────────────────────────────────────
+
+.rxNotice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  background: #f5f2ed;
+  border: 1px solid #e4ddd3;
+  border-radius: 6px;
+  padding: 0.625rem 0.75rem;
+  margin-bottom: 0.875rem;
+}
+
+.rxBadge {
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid #777;
+  border-radius: 3px;
+  font-size: 9px;
+  font-weight: 700;
+  color: #5a5a5a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.rxText {
+  font-size: 11px;
+  color: #5a5a5a;
+  line-height: 1.5;
+}
+
+// ── Price ─────────────────────────────────────────────────────────────────────
+
+.priceSection {
+  display: flex;
+  align-items: baseline;
+  gap: 0.625rem;
+  padding: 0.625rem 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 0.875rem;
+}
+
+.price {
+  font-family: 'Instrument Serif', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #1c1c1c;
+}
+
+.salePrice {
+  font-family: 'Instrument Serif', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #2d7a4f;
+}
+
+.originalPrice {
+  font-size: 13px;
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+.discount {
+  padding: 2px 8px;
+  background: #f0faf4;
+  color: #2d7a4f;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+  border: 1px solid #c8e8d4;
+}
+
+// ── Sections ──────────────────────────────────────────────────────────────────
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.sectionLabel {
+  font-size: 10px;
+  font-weight: 600;
+  color: #1c1c1c;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+// ── Color Swatches ────────────────────────────────────────────────────────────
+
+.swatches { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+.swatch {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid rgba(0,0,0,0.12);
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  transition: border-color 0.15s, transform 0.15s;
+
+  &:hover { border-color: #888; transform: scale(1.08); }
+
+  &.active {
+    border-color: #1c1c1c;
+    box-shadow: 0 0 0 2.5px #fff, 0 0 0 4px #1a1a1a;
+  }
+
+  .checkmark {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: #fff;
+    text-shadow: 0 0 4px rgba(0,0,0,0.6);
+  }
+}
+
+// ── Size Buttons ──────────────────────────────────────────────────────────────
+
+.sizes { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+
+.sizeButton {
+  width: 50px;
+  height: 50px;
+  border: 1.5px solid #ddd;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #1c1c1c;
+  transition: border-color 0.15s, background 0.15s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+
+  &:hover:not(.outOfStock) { border-color: #1c1c1c; }
+
+  &.active {
+    border-color: #1c1c1c;
+    background: #1a1a1a;
+    color: #fff;
+  }
+
+  &.outOfStock {
+    opacity: 0.3;
+    cursor: not-allowed;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 8%;
+      width: 84%;
+      height: 1px;
+      background: #ccc;
+      transform: rotate(-25deg);
+    }
+  }
+
+  .badge {
+    font-size: 8px;
+    font-weight: 700;
+    color: #cc3300;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    .active & { color: #f5a623; }
+  }
+}
+
+// ── Quantity Picker ───────────────────────────────────────────────────────────
+
+.quantityPicker {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  border: 1.5px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.quantityButton {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 300;
+  color: #5a5a5a;
+  transition: background 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover:not(:disabled) { background: #f5f5f5; color: #1c1c1c; }
+  &:disabled { opacity: 0.3; cursor: not-allowed; }
+  &:first-child { border-right: 1.5px solid #eee; }
+  &:last-child { border-left: 1.5px solid #eee; }
+}
+
+.quantityInput {
+  width: 48px;
+  height: 36px;
+  border: none;
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1c1c1c;
+  background: #fff;
+
+  &:focus { outline: none; }
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  &[type='number'] { -moz-appearance: textfield; }
+}
+
+.stockWarning {
+  margin: 0;
+  font-size: 11px;
+  color: #cc3300;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+// ── Add to Cart ───────────────────────────────────────────────────────────────
+
+.addToCartButton {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 6px;
+  background: #1c3a28;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  letter-spacing: 0.2px;
+  margin-bottom: 8px;
+
+  &:hover:not(.disabled) { background: #142d1e; }
+
+  &.disabled {
+    background: #e5e5e5;
+    color: #aaa;
+    cursor: not-allowed;
+  }
+}
+
+.eligibleButton {
+  width: 100%;
+  padding: 11px;
+  background: #fff;
+  color: #1c1c1c;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  margin-bottom: 6px;
+
+  &:hover { border-color: #888; }
+}
+
+.safetyLink {
+  display: block;
+  text-align: center;
+  font-size: 11px;
+  color: #5a5a5a;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: 10px;
+  background: none;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+}
+
+// ── Delivery ──────────────────────────────────────────────────────────────────
+
+.deliveryEstimate {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.625rem;
+  padding: 0.625rem 0.75rem;
+  background: #f5f2ed;
+  border-left: 3px solid #2d7a4f;
+  border-radius: 0 4px 4px 0;
+  font-size: 11px;
+  color: #5a5a5a;
+  line-height: 1.5;
+}
